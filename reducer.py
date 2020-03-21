@@ -17,4 +17,4 @@ for line in sys.stdin:
     word2count[word] = count
   
 for word in word2count.keys():
-  print ("%s\t%d" % ( word, word2count[word]) )
+  print ("%s\t%s" % ( word, word2count[word]) )
