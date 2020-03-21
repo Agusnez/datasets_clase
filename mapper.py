@@ -1,11 +1,9 @@
-#!/usr/bin/python2.6
+#!/usr/bin/env python
 
 import sys
-sys.path.append('.')
 
 for line in sys.stdin:
   line = line.strip()
-  keys = line.split()
-  for key in keys:
-    value = 1
-    print ("%s\t%d" % (key,value))
+  words = line.split()
+  for word in words:
+    print "%s\t%d" % (word,"1")
