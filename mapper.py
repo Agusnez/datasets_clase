@@ -1,0 +1,11 @@
+#!/usr/bin/python2.6
+
+import sys
+sys.path.append('.')
+
+for line in sys.stdin:
+  line = line.strip()
+  keys = line.split()
+  for key in keys:
+    value = 1
+    print ("%s\t%d" % (key,value))
