@@ -1,24 +1,20 @@
-#!/usr/bin/python2.6
+#!/usr/bin/env python
 
 import sys
+word2count = {}
 
-sys.path.append('.')
-
-last_key = None
-running_total = 0
-
-for input_line in sys.stdin:
-  input_line = input_line.strip()
-  this_key, value = input_line("\t",1)
-  value = int(value)
+for line in sys.stdin:
+  line = line.strip()
+  word, count = line.split("\t",1)
   
-  if last_key == this_key:
-    running_total += value
-  else:
-    if last_key == this_key:
-      print("%s\t%d" % (last_key, running_total))
-  running_total = value
-  last_key = this_key
+  try:
+    count = int(count)
+  except ValueError:
+    continue
+  try:
+    word2count[word] = word2count[word]+1
+  except:
+    word2count[word] = count
   
-if last_key == this_key:
-  print("%s\t%d" % (last_key, running_total) )
+for word in word2count.keys():
+  print ("%s\t%d" % ( word, word2count[word]) )
